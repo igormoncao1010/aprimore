@@ -2,6 +2,20 @@ const topbar = document.querySelector(".topbar");
 const stickyCta = document.querySelector(".sticky-cta");
 const revealEls = document.querySelectorAll(".reveal");
 const form = document.querySelector(".lead-form");
+const whatsappNumber = "5532998463217";
+
+const buildWhatsappUrl = ({ nome, whatsapp, email, area }) => {
+  const message = [
+    "Olá, quero mais informações sobre a Aprimore.",
+    "",
+    `Nome: ${nome || ""}`,
+    `WhatsApp: ${whatsapp || ""}`,
+    `E-mail: ${email || ""}`,
+    `Área de interesse: ${area || ""}`,
+  ].join("\n");
+
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+};
 
 const updateChrome = () => {
   const isScrolled = window.scrollY > 18;
@@ -32,6 +46,12 @@ form.addEventListener("submit", (event) => {
   const status = form.querySelector(".form-status");
   const originalText = button.textContent;
   const payload = Object.fromEntries(new FormData(form).entries());
+  const whatsappUrl = buildWhatsappUrl(payload);
+
+  if (payload.empresa) {
+    form.reset();
+    return;
+  }
 
   button.textContent = "Enviando...";
   button.disabled = true;
@@ -57,11 +77,14 @@ form.addEventListener("submit", (event) => {
       form.reset();
     })
     .catch(() => {
-      status.textContent = "Nao foi possivel enviar agora. Tente novamente em alguns instantes.";
-      status.classList.add("error");
+      status.textContent = "Vamos abrir o WhatsApp com seus dados para concluir o contato.";
+      status.classList.add("success");
     })
     .finally(() => {
       button.textContent = originalText;
       button.disabled = false;
+      setTimeout(() => {
+        window.location.href = whatsappUrl;
+      }, 700);
     });
 });

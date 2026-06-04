@@ -817,6 +817,25 @@ h3 {
   color: var(--white);
 }
 
+.creator-footer {
+  display: flex;
+  justify-content: center;
+  padding: 13px 18px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #18130f;
+}
+
+.creator-footer a {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+.creator-footer a:hover {
+  color: var(--gold);
+}
+
 .sticky-cta {
   position: fixed;
   right: 18px;
