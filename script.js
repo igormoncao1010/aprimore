@@ -6,7 +6,7 @@ const whatsappNumber = "5532998463217";
 
 const buildWhatsappUrl = ({ nome, whatsapp, email, area }) => {
   const message = [
-    "Olá, quero mais informações sobre a Aprimore.",
+    "Olá, quero garantir minha condição especial e receber o Guia Completo da Especialização.",
     "",
     `Nome: ${nome || ""}`,
     `WhatsApp: ${whatsapp || ""}`,

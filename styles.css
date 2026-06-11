@@ -390,6 +390,10 @@ h3 {
   font-size: 18px;
 }
 
+.section-copy p:not(.eyebrow) + p {
+  margin-top: 14px;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -397,7 +401,7 @@ h3 {
 }
 
 .feature {
-  min-height: 225px;
+  min-height: 250px;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -633,6 +637,71 @@ h3 {
   font-weight: 800;
 }
 
+.scholarship-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  margin-top: 18px;
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid rgba(197, 154, 69, 0.28);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(247, 238, 219, 0.94)),
+    var(--white);
+  box-shadow: 0 24px 70px rgba(36, 28, 18, 0.1);
+}
+
+.scholarship-copy {
+  max-width: 760px;
+}
+
+.scholarship-copy h3 {
+  margin-bottom: 18px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.04;
+}
+
+.scholarship-copy p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.scholarship-offer {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 34px);
+  border-radius: 22px;
+  color: var(--white);
+  background:
+    linear-gradient(135deg, rgba(34, 29, 24, 0.96), rgba(104, 78, 34, 0.92)),
+    var(--deep);
+  box-shadow: 0 20px 54px rgba(36, 28, 18, 0.18);
+}
+
+.scholarship-offer span {
+  color: var(--gold);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.scholarship-offer strong {
+  max-width: 300px;
+  font-size: 22px;
+  line-height: 1.18;
+}
+
+.scholarship-offer .primary-btn {
+  width: 100%;
+  min-height: 54px;
+  padding-inline: 20px;
+  background: linear-gradient(135deg, var(--gold), #e4c16f);
+  color: var(--deep);
+  text-transform: uppercase;
+}
+
 .audience-section {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -645,7 +714,7 @@ h3 {
   gap: 14px;
 }
 
-.audience-list span,
+.audience-list article,
 .find-grid span {
   position: relative;
   padding: 18px 18px 18px 52px;
@@ -656,18 +725,35 @@ h3 {
   font-weight: 800;
 }
 
-.audience-list span::before,
+.audience-list article::before,
 .find-grid span::before {
   content: "";
   position: absolute;
   left: 18px;
-  top: 50%;
+  top: 24px;
   width: 17px;
   height: 17px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold), #f1db9b);
-  transform: translateY(-50%);
   box-shadow: 0 0 0 6px rgba(197, 154, 69, 0.14);
+}
+
+.audience-list article h3 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  line-height: 1.22;
+}
+
+.audience-list article p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.find-grid span::before {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .find-section {
@@ -709,18 +795,50 @@ h3 {
   max-width: 720px;
 }
 
+.lead-benefits {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  max-width: 620px;
+}
+
+.lead-benefits span {
+  position: relative;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid rgba(197, 154, 69, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.lead-benefits span::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #f1db9b);
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 5px rgba(197, 154, 69, 0.14);
+}
+
 .lead-note {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 13px 16px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  display: grid;
+  gap: 7px;
+  max-width: 660px;
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 .lead-note span {
   color: var(--muted);
+  font-weight: 700;
 }
 
 .lead-form {
@@ -908,6 +1026,7 @@ h3 {
   .split-section,
   .hof-content,
   .program-panel,
+  .scholarship-panel,
   .audience-section,
   .lead-section {
     grid-template-columns: 1fr;
@@ -990,6 +1109,10 @@ h3 {
   .program-grid,
   .find-grid {
     grid-template-columns: 1fr;
+  }
+
+  .scholarship-offer {
+    justify-items: stretch;
   }
 
   .feature {
